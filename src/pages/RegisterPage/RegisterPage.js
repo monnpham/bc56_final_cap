@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { SET_INFOR } from "../../redux/constant/user";
-import Sider from "antd/es/layout/Sider";
 
 export default function RegisterPage() {
   let navigate = useNavigate();
@@ -22,7 +21,7 @@ export default function RegisterPage() {
         navigate("/user/Board");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.response.data.message)
       });
   };
   const onFinishFailed = (errorInfo) => {
@@ -30,13 +29,11 @@ export default function RegisterPage() {
   };
   return (
     <div className="w-full">
-      <div className="emotion-bg">
+      <div className="emotion-bg h-screen">
         <Layout>
-          <Sider width={window.innerWidth * 3 / 4.5} height={window.innerHeight}>
-          </Sider>
-          <content>
+          <div className="bg-white h-screen">
             <Form
-              className="bg-gray-200 container_login p-6 rounded-lg h-screen"
+              className="bg-gray-200 container_login p-6 rounded-lg "
               name="basic"
               labelCol={{}}
               layout="vertical"
@@ -44,8 +41,8 @@ export default function RegisterPage() {
                 span: 24,
               }}
               style={{
-                width: window.innerWidth / 3,
-                paddingTop: window.innerHeight / 4
+                width: window.innerWidth / 4,
+                marginTop: window.innerHeight / 8
               }}
               initialValues={{
                 remember: true,
@@ -136,13 +133,15 @@ export default function RegisterPage() {
                 <Button
                   type="primary"
                   htmlType="submit"
-                  className="bg-orange-600 text-white w-full h-11 font-semibold"
+                  className=" text-white w-full h-11 font-semibold"
+                  style={{ backgroundColor: "#001529" }}
                 >
                   ĐĂNG KÝ
                 </Button>
               </Form.Item>
               <div
-                className="text-blue-500 cursor-pointer text-decoration-underline text-right font-semibold"
+                className="text-blue-500 cursor-pointer text-decoration-underline  font-semibold"
+                style={{ width: "50%" }}
                 onClick={() => {
                   navigate("/login");
                 }}
@@ -150,9 +149,9 @@ export default function RegisterPage() {
                 Bạn đã có tài khoản? Đăng nhập
               </div>
             </Form>
-          </content>
+          </div>
         </Layout>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
