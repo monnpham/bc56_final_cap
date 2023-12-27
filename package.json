@@ -1,7 +1,7 @@
 {
   "name": "bc56_nhom2_final_captone",
   "version": "0.1.0",
-  "homepage": "https://monnpham.github.io/bc56_final_cap/",
+  "homepage": "https://monnpham.github.io/bc56_final_cap",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
