@@ -117,7 +117,7 @@ export default function ManagementTablet() {
             sorter: (a, b) => a.id - b.id,
             sortOrder: sortedInfo.columnKey === 'id' ? sortedInfo.order : null,
             ellipsis: true,
-            width: 100,
+            width: 80,
         },
         {
             title: 'Project Name',
@@ -147,69 +147,6 @@ export default function ManagementTablet() {
             sortOrder: sortedInfo.columnKey === 'projectName' ? sortedInfo.order : null,
             ellipsis: true,
         },
-        {
-            title: 'categoryName',
-            dataIndex: 'categoryName',
-            key: 'categoryName',
-            width: 160,
-            filteredValue: filteredInfo.categoryName || null,
-            onFilter: (value, record) => record.categoryName.includes(value),
-            sorter: (a, b) => a.categoryName.length - b.categoryName.length,
-            sortOrder: sortedInfo.columnKey === 'categoryName' ? sortedInfo.order : null,
-            ellipsis: true,
-        },
-        {
-            title: 'Creator',
-            dataIndex: 'creator',
-            key: 'creator',
-            width: 120,
-            render: (text, record) =>
-                <p>{record.creator.name}</p>
-            ,
-            filteredValue: filteredInfo.creator || null,
-            onFilter: (value, record) => record.creator.name.includes(value),
-            sorter: (a, b) => a.creator.name.length - b.creator.name.length,
-            sortOrder: sortedInfo.columnKey === 'creator' ? sortedInfo.order : null,
-            ellipsis: true,
-        },
-        {
-            title: 'Members',
-            dataIndex: 'members',
-            key: 'members',
-            render: (record) =>
-                <>
-                    <Dropdown overlay={dropdownMenu(record)} placement="left">
-                        <div className="">
-                            {record?.map((item) => {
-                                return (
-                                    <span key={item.id} color="red" className="inline-flex">
-                                        <img src={item.avatar} alt="avatar" style={{ borderRadius: "50%", width: '30px', height: '30px' }} />
-                                    </span>
-                                );
-                            })}
-                            <Popconfirm
-                                description={
-                                    <>
-                                        <Input placeholder="Search..." />
-                                    </>
-                                }
-                                placement="rightTop"
-                                title="ADD USER"
-                                // okText="Yes"
-                                // cancelText="No"
-                                okButtonProps={{ style: { display: 'none' } }}
-                                cancelButtonProps={{ style: { display: 'none' } }}
-                                icon={null}
-                                style={{ width: '100px' }}
-
-                            >
-                            </Popconfirm>
-                        </div>
-                    </Dropdown>
-                </>
-
-        },
-
         {
             title: 'Action',
             fixed: 'right',
@@ -408,9 +345,9 @@ export default function ManagementTablet() {
         </>
     }
     return (
-        <div className=' w-full m-5' >
-            <h3 style={{ fontWeight: "700", fontSize: "28px" }}>Project Management</h3>
-            <div className=' container'>
+        <div className=' w-full mt-14' >
+            <h3 style={{ fontWeight: "700", fontSize: "18px" }}>Project Management</h3>
+            <div className='container'>
 
                 {isLoading ? (<PropagateLoader color="#001529" size={20} />) : (
                     <Table
@@ -418,7 +355,7 @@ export default function ManagementTablet() {
                         dataSource={arrProject}
                         onChange={handleChange}
                         pagination={{
-                            pageSize: 6,
+                            pageSize: 8,
                             total: arrProject?.length,
                         }}
                     />

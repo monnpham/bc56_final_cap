@@ -835,36 +835,31 @@ export default function BoardTablet() {
 
 
     return (
-        <div className='w-full m-5 '>
-            <h3 style={{ fontWeight: "700", fontSize: "28px", }}>Board Project :{project.projectName}</h3>
+        <div className='w-full mt-14  '>
+            <h3 style={{ fontWeight: "700", fontSize: "28px", }}>Board Project </h3>
             {renderModalCreate()}
             {renderModalAdd()}
 
             <div className=" flex justify-start">
-                <Button onClick={showModal} className='mr-4' style={{
+                <Button onClick={showModal} className='' style={{
                     backgroundColor: "#001529", color: "white",
                 }}>Create Task</Button>
-                <Button onClick={showModalAdd} className='mr-4' style={{
+                <Button onClick={showModalAdd} className='' style={{
                     backgroundColor: "#001529", color: "white",
                 }}>Add member</Button>
 
-                <Dropdown overlay={dropdownMenu(project?.members)} placement="bottom" >
-                    <div className="flex">
-                        {project?.members?.map((item) => {
-                            return (
-                                <span key={item.id} color="red" className="inline-flex">
-                                    <img src={item.avatar} alt="avatar" style={{ borderRadius: "50%", width: '30px', height: '30px' }} />
-                                </span>
-                            );
-                        })}
-                    </div>
-                </Dropdown>
+
             </div >
 
-            < div className="container flex justify-between Task" >
+            < div className=" flex justify-between Task mr-5 mt-1"
+                style={{
+                    overflowY: "auto",
+                    maxHeight: "600px",
+                }}
+            >
                 {project?.lstTask?.map((item, index) => (
                     <div className="Ta" key={index}>
-                        <div className="Task_Box">
+                        <div className="Task_Box mb-3">
                             <div className="Task_Status">
                                 <p>{item.statusName}</p>
                             </div>

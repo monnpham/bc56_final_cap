@@ -2,14 +2,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Spinner from "./components/Spinner/Spinner";
 import { Toaster } from "react-hot-toast";
-import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import UserPage from "./pages/UserPage/UserPage";
 import Layout from "./layout/layout";
 import BoardResponsive from "./pages/UserPage/BoardPage/BoardResponsive";
 import ManagementResponsive from "./pages/UserPage/ManagementPage/ManagementResponsive";
 import CreateResponsive from "./pages/UserPage/CreatePage/CreateResponsive";
+import LoginPageResponsive from "./pages/LoginPage/LoginPageResponsive";
+import RegisterPageResponsive from "./pages/RegisterPage/RegisterPageResponsive";
 
 
 
@@ -29,10 +29,8 @@ function App() {
           <Route path="/user/Board" element={<BoardResponsive />} />
         </Route>
 
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-
-
+        <Route path="/login" element={<LoginPageResponsive />} />
+        <Route path="/register" element={<RegisterPageResponsive />} />
 
       </Routes>
     </BrowserRouter>

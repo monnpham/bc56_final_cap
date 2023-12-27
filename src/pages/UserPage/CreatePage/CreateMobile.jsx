@@ -11,7 +11,6 @@ export default function CreateMobile() {
     let navigate = useNavigate();
     let dispatch = useDispatch();
     let info = useSelector((state) => state.userReducer.info);
-    console.log("🚀 ~ file: Create.jsx:14 ~ Create ~ info:", info.id)
 
     const createProject = useSelector((state) => state.userReducer.createProject);
 
@@ -82,12 +81,12 @@ export default function CreateMobile() {
         console.log(createProject)
     };
     return (
-        <div className='w-full gird m-5'>
+        <div className='w-full gird mt-12'>
             <div className="">
                 <h3 style={{ fontWeight: "700", fontSize: "28px" }}>Create Project</h3>
             </div>
-            <div className="flex justify-center">
-                <div className="" style={{ width: "1000px" }}>
+            <div className="flex justify-center mr-5">
+                <div className="" >
                     <Layout>
                         <content>
                             <Form
@@ -122,7 +121,7 @@ export default function CreateMobile() {
                                         onInit={(editor) => editorRef.current = editor}
                                         initialValue=""
                                         init={{
-                                            height: 400,
+                                            height: 200,
                                             menubar: false,
                                             plugins: [
                                                 'advlist autolink lists link image charmap print preview anchor',
@@ -146,7 +145,7 @@ export default function CreateMobile() {
                                     <p>Category</p>
                                     <select name='categoryId' className='form-control' onChange={(e) => handelChangeCategory(e)}>
                                         {arrcategory?.map((item, index) => (
-                                            <option value={item.id} key={index}>{item.projectCategoryName}</option>
+                                            <option value={item.id} key={index}><span style={{ maxWidth: "10px" }}>{item.projectCategoryName}</span></option>
                                         ))}
                                     </select>
                                 </Form.Item>

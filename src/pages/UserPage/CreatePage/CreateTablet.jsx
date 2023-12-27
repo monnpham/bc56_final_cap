@@ -82,12 +82,12 @@ export default function CreateTablet() {
         console.log(createProject)
     };
     return (
-        <div className='w-full gird m-5'>
+        <div className='w-full gird mt-16'>
             <div className="">
                 <h3 style={{ fontWeight: "700", fontSize: "28px" }}>Create Project</h3>
             </div>
-            <div className="flex justify-center">
-                <div className="" style={{ width: "1000px" }}>
+            <div className="flex justify-center mr-5">
+                <div className="" >
                     <Layout>
                         <content>
                             <Form
@@ -144,7 +144,8 @@ export default function CreateTablet() {
                                     name="categoryId"
                                 >
                                     <p>Category</p>
-                                    <select name='categoryId' className='form-control' onChange={(e) => handelChangeCategory(e)}>
+                                    <select
+                                        name='categoryId' className='form-control' onChange={(e) => handelChangeCategory(e)}>
                                         {arrcategory?.map((item, index) => (
                                             <option value={item.id} key={index}>{item.projectCategoryName}</option>
                                         ))}

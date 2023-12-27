@@ -1,16 +1,14 @@
-
-import React, { useEffect, useState } from 'react';
-import SideBar from './sideBarPage/sideBar';
+import React, { useEffect, } from 'react';
 import { Outlet } from 'react-router-dom';
 import { userService } from '../../services/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { GET_PROJECT, LOADING } from '../../redux/constant/user';
+import SiderBarResponsive from './sideBarPage/siderBarResponsive';
 
 
 export default function UserPage() {
     let info = useSelector((state) => state.userReducer.info);
     let dispatch = useDispatch();
-
     useEffect(() => {
         userService
             .getListAllProject()
@@ -28,10 +26,9 @@ export default function UserPage() {
     }, []);
     return (
         <div className="jira ">
-            {/* Sider Bar  */}
-            <SideBar />
-            {/* Menu */}
-            {/* <Menu /> */}
+
+            <SiderBarResponsive />
+
             <Outlet />
         </div>
 

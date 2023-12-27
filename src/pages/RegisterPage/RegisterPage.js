@@ -18,7 +18,7 @@ export default function RegisterPage() {
         dispatch({ type: SET_INFOR, payload: res.data.content });
         localStorage.setItem("USER", JSON.stringify(res.data.content));
         toast.success("Đăng ký thành công");
-        navigate("/user/Board");
+        navigate("/user/Management");
       })
       .catch((err) => {
         toast.error(err.response.data.message)

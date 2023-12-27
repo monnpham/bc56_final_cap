@@ -12,9 +12,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 const { Header, Sider } = Layout;
 
-export default function SideBar() {
+export default function SiderBarTablet() {
     let info = useSelector((state) => state.userReducer.info);
-    console.log("🚀 ~ file: sideBar.jsx:16 ~ SideBar ~ info:", info)
 
     const location = useLocation();
     const [collapsed, setCollapsed] = useState(false);

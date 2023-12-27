@@ -109,15 +109,13 @@ export default function ManagementMobile() {
             title: 'ID',
             dataIndex: 'id',
             key: 'id',
-            // render: (record) =>
-            //     setIdd(record)
-            // ,
+
             filteredValue: filteredInfo.id || null,
             onFilter: (value, record) => record.id === parseInt(value, 10),
             sorter: (a, b) => a.id - b.id,
             sortOrder: sortedInfo.columnKey === 'id' ? sortedInfo.order : null,
             ellipsis: true,
-            width: 90,
+            width: 70,
         },
         {
             title: 'Project Name',
@@ -181,8 +179,7 @@ export default function ManagementMobile() {
                             }
                         }}
                     >
-                        <button className='btn_active'
-                        >
+                        <button className='btn_active'  >
                             <Tag className='btn_active ' color="#FF0000"> <DeleteOutlined /></Tag>
                         </button>
                     </Popconfirm>
@@ -343,17 +340,17 @@ export default function ManagementMobile() {
         </>
     }
     return (
-        <div className="">
-            <div className='w-full ' style={{ fontSize: "14px" }} >
+        <div className=" w-full mt-14 ">
+            <div className='' style={{ fontSize: "14px" }} >
                 <h3 style={{ fontWeight: "700", fontSize: "18px" }}>Project Management</h3>
-                <div className=''>
-                    {isLoading ? (<PropagateLoader color="#001529" size={20} />) : (
+                <div className='container'>
+                    {isLoading ? (<PropagateLoader color="#001529" size={10} />) : (
                         <Table
                             columns={columns}
                             dataSource={arrProject}
                             onChange={handleChange}
                             pagination={{
-                                pageSize: 6,
+                                pageSize: 4,
                                 total: arrProject?.length,
                             }}
                         />
