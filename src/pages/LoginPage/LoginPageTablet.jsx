@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Form, Input, Layout } from "antd";
-import { task, userService } from "../../services/service";
+import { userService } from "../../services/service";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_CATEGOGY, GET_PROJECT, GET_STATUS, SET_INFOR } from "../../redux/constant/user";
-import Sider from "antd/es/layout/Sider";
+import { SET_INFOR } from "../../redux/constant/user";
 
 export default function LoginPageTablet() {
     let navigate = useNavigate();
@@ -15,6 +14,7 @@ export default function LoginPageTablet() {
     console.log("🚀🚀🚀🚀🚀info:", info?.id)
 
     const [detail, setDetail] = useState();
+    console.log("🚀 ~ file: LoginPageTablet.jsx:17 ~ LoginPageTablet ~ detail:", detail)
     const onFinish = (values) => {
         userService
             .login(values)

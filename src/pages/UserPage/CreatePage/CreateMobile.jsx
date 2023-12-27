@@ -1,7 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
 import { Form, Input, Layout } from "antd";
 import React, { useEffect, useRef, useState } from 'react'
-import { projectService, task, userService } from '../../../services/service';
+import { projectService, userService } from '../../../services/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { CommentService, TimeTracking, projectService, task } from '../../../services/service';
-import { Input, Modal, Radio, Form, Select, Space, InputNumber, Slider, Button, Avatar, Collapse, Tag, Table, Dropdown, Popconfirm } from 'antd';
-import { DeleteOutlined, PlusCircleOutlined, PlusOutlined, UserOutlined } from '@ant-design/icons';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { Input, Modal, Form, Select, InputNumber, Slider, Button, Avatar, Collapse, Tag, Table, Dropdown, Popconfirm } from 'antd';
 import { Option } from 'antd/es/mentions';
 import toast from 'react-hot-toast';
-import { BarLoader, PropagateLoader } from 'react-spinners';
+import { PropagateLoader } from 'react-spinners';
 
 export default function BoardTablet() {
     const dispatch = useDispatch();
@@ -30,6 +27,7 @@ export default function BoardTablet() {
     const [estimateTime, setEstimateTime] = useState("0");
     const [spentTime, setSpentTime] = useState("0");
     const [remainingTime, setRemainingTime] = useState(0);
+    console.log("🚀 ~ file: BoardTablet.jsx:30 ~ BoardTablet ~ remainingTime:", remainingTime)
     const [priorityEdit, setPriorityEdit] = useState({})
 
     const handleChange = (selected) => {

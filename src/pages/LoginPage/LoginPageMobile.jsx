@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Form, Input, Layout } from "antd";
-import { task, userService } from "../../services/service";
+import { userService } from "../../services/service";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_CATEGOGY, GET_PROJECT, GET_STATUS, SET_INFOR } from "../../redux/constant/user";
+import { SET_INFOR } from "../../redux/constant/user";
 import Sider from "antd/es/layout/Sider";
 
 export default function LoginPageMobile() {
@@ -14,7 +14,6 @@ export default function LoginPageMobile() {
     let info = useSelector((state) => state.userReducer.info);
     console.log("🚀🚀🚀🚀🚀info:", info?.id)
 
-    const [detail, setDetail] = useState();
     const onFinish = (values) => {
         userService
             .login(values)
@@ -37,7 +36,6 @@ export default function LoginPageMobile() {
         userService
             .getDetail(id)
             .then((res) => {
-                setDetail(res.data.content);
             })
             .catch((err) => {
                 console.log(err);
